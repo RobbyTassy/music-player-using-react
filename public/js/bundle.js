@@ -1,0 +1,1 @@
+console.error("SyntaxError: /Users/rtass001/Documents/projects/wyncode_projects/scotch-player/app/app.js: Unexpected token (12:10) while parsing file: /Users/rtass001/Documents/projects/wyncode_projects/scotch-player/app/app.js");
