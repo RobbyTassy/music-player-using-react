@@ -1,23 +1,22 @@
 // ES6 Component
-// Import React and ReactDOM
 import React from 'react';
+// Import React and ReactDOM
 import ReactDOM from 'react-dom';
-// Search component created as a class
-class Search extends React.Component {
+// Import Search component from app/components/search.component.js directory
+import Search from './components/search.component';
 
-    // render method is most important
-    // render method returns JSX template
-    render() {
-        return (
-          <form>
-            <input type = "text" />
-            <input type = "submit" />
-          </form>
-        );
-    }
+// Component Class
+
+class App extends React.Component {
+  // render method is most import
+  // render method returns JSX template
+  render() {
+    return(
+      <Search />
+    );
+  }
 }
 
 // Render to ID content in the DOM
-ReactDOM.render( < Search / > ,
-    document.getElementById('content')
-);
+
+ReactDOM.render( <App/ >, document.getElementById('content'));
