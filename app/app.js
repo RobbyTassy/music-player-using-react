@@ -4,6 +4,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // Import Search component from app/components/search.component.js directory
 import Search from './components/search.component';
+// Import Details component from app/components/details.component.js directory
+import Details from './components/details.component';
 
 // Component Class
 
@@ -12,7 +14,10 @@ class App extends React.Component {
   // render method returns JSX template
   render() {
     return(
+      <div>
       <Search />
+      <Details title={'Track title'} />
+      </div>
     );
   }
 }
