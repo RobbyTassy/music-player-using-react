@@ -6,6 +6,8 @@ import ReactDOM from 'react-dom';
 import Search from './components/search.component';
 // Import Details component from app/components/details.component.js directory
 import Details from './components/details.component';
+// Import Player component from app/components/player.component.js directory
+import Player from './components/player.component';
 
 // Component Class
 
@@ -17,6 +19,7 @@ class App extends React.Component {
       <div>
       <Search />
       <Details title={'Track title'} />
+      <Player />
       </div>
     );
   }
