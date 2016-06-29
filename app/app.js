@@ -8,6 +8,8 @@ import Search from './components/search.component';
 import Details from './components/details.component';
 // Import Player component from app/components/player.component.js directory
 import Player from './components/player.component';
+// Import Progress component from app/components/progress.component.js directory
+import Progress from './components/progress.component';
 
 // Component Class
 
@@ -20,6 +22,7 @@ class App extends React.Component {
       <Search />
       <Details title={'Track title'} />
       <Player />
+      <Progress elapsed={'00:00'} position={'0.3'} total={'0:40'} />
       </div>
     );
   }
