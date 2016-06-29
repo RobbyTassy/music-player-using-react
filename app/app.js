@@ -11,6 +11,8 @@ import Player from './components/player.component';
 // Import Progress component from app/components/progress.component.js directory
 import Progress from './components/progress.component';
 
+import Footer from './components/footer.component';
+
 // Component Class
 
 class App extends React.Component {
@@ -23,6 +25,7 @@ class App extends React.Component {
       <Details title={'Track title'} />
       <Player />
       <Progress elapsed={'00:00'} position={'0.3'} total={'0:40'} />
+      <Footer />
       </div>
     );
   }
