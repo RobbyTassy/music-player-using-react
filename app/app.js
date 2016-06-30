@@ -10,7 +10,7 @@ import Details from './components/details.component';
 import Player from './components/player.component';
 // Import Progress component from app/components/progress.component.js directory
 import Progress from './components/progress.component';
-
+// Import Footer component from app/components/footer.component.js directory
 import Footer from './components/footer.component';
 
 // Component Class
