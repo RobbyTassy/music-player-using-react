@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Search from '../components/search.component'
 import Axios from 'axios';
 
 // Exposes common sound APSs like: play, pause, stop
@@ -17,8 +17,10 @@ class AppContainer extends React.Container {
       elapsed: '00:00',
       total: '00:00',
       position: 0,
-      playFromPosition: 0
-    }
+      playFromPosition: 0,
+      autoCompleteValue: '',
+      tracks: []
+    };
   }
 
   // Called once a component is loaded
@@ -65,6 +67,12 @@ class AppContainer extends React.Container {
   render() {
     return(
       <div className="scotch-music">
+      <Search
+      autoCompleteValue={this.state.autoCompleteValue}
+      tracks={this.state.tracks}
+      handleSelect={this.handleSelect.bind(this)}
+      handleChange={this.handleChange.bind(this)} />
+
         url={this.prepareUrl(this.state.track.stream_url)}
         playStatus={this.state.playStatus}
         onPlaying={this.handleSongPlaying.bind(this)}
