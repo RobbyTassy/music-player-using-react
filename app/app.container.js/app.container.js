@@ -94,6 +94,14 @@ class AppContainer extends React.Container {
       this.setState({playStatus: Sound.status.STOPPED});
     }
 
+    forward() {
+      this.setState({playFromPosition: this.state.playFromPosition+=1000*10});
+    }
+
+    backward() {
+      this.setState({playFromPosition: this.state.playFromPosition-=1000*10});
+    }
+
   }
 
 
