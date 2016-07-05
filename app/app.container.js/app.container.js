@@ -1,9 +1,9 @@
 import React from 'react';
 import Search from '../components/search.component'
 import Axios from 'axios';
-
 // Exposes common sound APSs like: play, pause, stop
 import Sounds from 'react-sound';
+import Details from '../components/details.component'
 
 class AppContainer extends React.Container {
 
@@ -80,6 +80,22 @@ class AppContainer extends React.Container {
     this.randomTrack
   }
 
+  togglePlay() {
+    // Check current playing state
+    if(this.state.playStatus === sound.status.PLAYING){
+      // Pause if playing
+      this.setState({playStatus: Sound.state.PAUSED})
+    } else {
+      // Resume if paused
+      this.setState({playStatus: Sound.status.PLAYING})
+    }
+
+    stop() {
+      this.setState({playStatus: Sound.status.STOPPED});
+    }
+
+  }
+
 
   // Render method
   render() {
@@ -90,6 +106,15 @@ class AppContainer extends React.Container {
       tracks={this.state.tracks}
       handleSelect={this.handleSelect.bind(this)}
       handleChange={this.handleChange.bind(this)} />
+      <Details title={this.state.track.title} />
+      <Player
+      togglePlay={this.togglePlay.bind(this)}
+      stop={this.stop.bind(this)}
+      playStatus={this.state.playStatus}
+      forward={this.forward.bind(this)}
+      backward={this.backward.bind(this)}
+      random={this.randomTrack.bind(this)}
+       />
 
         url={this.prepareUrl(this.state.track.stream_url)}
         playStatus={this.state.playStatus}
