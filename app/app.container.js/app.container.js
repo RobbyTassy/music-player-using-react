@@ -28,6 +28,24 @@ class AppContainer extends React.Container {
     this.randomTrack
   }
 
+  handleSelect(value, item) {
+
+    // Update input search box
+    this.setState({autoCompleteValue: value, track: item});
+    let _this = this;
+
+    // Search for song with entered value
+    Axios.get(`https://api.soundcloud.com/tracks?client_id=${this.client_id}&q=${value}`)
+    .then(function (response) {
+      // Update the track state
+      _this.setState({tracks: response.data});
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+
+  }
+
   // url: Stream URL of the sound. Attaches the client id to the URL
   prepareUrl(url) {
     return `${url}?client_id=${this.client_id}`
