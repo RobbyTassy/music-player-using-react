@@ -114,15 +114,19 @@ class AppContainer extends React.Container {
       tracks={this.state.tracks}
       handleSelect={this.handleSelect.bind(this)}
       handleChange={this.handleChange.bind(this)} />
-      <Details title={this.state.track.title} />
+      <Details
+      title={this.state.track.title} />
       <Player
       togglePlay={this.togglePlay.bind(this)}
       stop={this.stop.bind(this)}
       playStatus={this.state.playStatus}
       forward={this.forward.bind(this)}
       backward={this.backward.bind(this)}
-      random={this.randomTrack.bind(this)}
-       />
+      random={this.randomTrack.bind(this)} />
+       <Progress
+       elapsed={this.state.elapsed}
+       total={this.state.total}
+       position={this.state.position} />
 
         url={this.prepareUrl(this.state.track.stream_url)}
         playStatus={this.state.playStatus}
