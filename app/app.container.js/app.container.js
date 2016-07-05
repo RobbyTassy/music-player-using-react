@@ -51,6 +51,10 @@ class AppContainer extends React.Container {
     return `${url}?client_id=${this.client_id}`
   }
 
+  xlArtwork(url){
+    return url.replace(/large/, 't500x500')
+  }
+
   formatMillisecnonds(milliseconds) {
     // Format hours
     var hours = Math.floor(milliseconds / 3600000);
@@ -107,8 +111,18 @@ class AppContainer extends React.Container {
 
   // Render method
   render() {
+
+    const scotchStyle = {
+      width: '500px',
+      height: '500px',
+      backgroundImage: `linear-gradient(
+        rgba(0, 0, 0, 0.7),
+        rgba(0, 0, 0, 0.7)
+      ), url(${this.xlArtwork(this.state.track.artwork_url)})`
+    }
+
     return(
-      <div className="scotch-music">
+      <div className="scotch-music" style={scotchStyle}>
       <Search
       autoCompleteValue={this.state.autoCompleteValue}
       tracks={this.state.tracks}
