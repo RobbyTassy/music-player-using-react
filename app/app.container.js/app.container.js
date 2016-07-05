@@ -133,6 +133,7 @@ class AppContainer extends React.Container {
         onPlaying={this.handleSongPlaying.bind(this)}
         playFromPosition={this.state.playFromPosition}
         onFinishedPlaying={this.handleSongFinished.bind(this)}
+        <Footer />
       </div>
     );
   }
