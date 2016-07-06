@@ -1,9 +1,20 @@
+
+// React library
 import React from 'react';
-import Search from '../components/search.component'
+
+// Axios for Ajax
 import Axios from 'axios';
-// Exposes common sound APSs like: play, pause, stop
+
+// Sound componen: exposes common sound APSs like: play, pause, stop
 import Sounds from 'react-sound';
+
+// Custom component
+import Search from '../components/search.component'
 import Details from '../components/details.component'
+import Player from '../components/player.component';
+import Progress from '../components/progress.component';
+import Footer from '../components/footer.component';
+
 
 class AppContainer extends React.Container {
 
@@ -55,7 +66,7 @@ class AppContainer extends React.Container {
     return url.replace(/large/, 't500x500')
   }
 
-  formatMillisecnonds(milliseconds) {
+  formatMilliseconds(milliseconds) {
     // Format hours
     var hours = Math.floor(milliseconds / 3600000);
     milliseconds = milliseconds % 3600000
