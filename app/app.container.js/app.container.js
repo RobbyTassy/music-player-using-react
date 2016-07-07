@@ -5,12 +5,12 @@ import React from 'react';
 // Axios for Ajax
 import Axios from 'axios';
 
-// Sound componen: exposes common sound APSs like: play, pause, stop
-import Sounds from 'react-sound';
+// Sound componen: exposes common sound APIs like: play, pause, stop
+import Sound from 'react-sound';
 
 // Custom component
-import Search from '../components/search.component'
-import Details from '../components/details.component'
+import Search from '../components/search.component';
+import Details from '../components/details.component';
 import Player from '../components/player.component';
 import Progress from '../components/progress.component';
 import Footer from '../components/footer.component';
@@ -23,7 +23,11 @@ class AppContainer extends React.Container {
     super(props);
     this.client_id = 'YOUR_CLIENT_ID'
     this.state ={
-      track: {stream_url: '', title: '', artwork_url: ''},
+      track: {
+        stream_url: '',
+        title: '',
+        artwork_url: ''
+      },
       playStatus: Sound.status.STOPPED,
       elapsed: '00:00',
       total: '00:00',
@@ -39,7 +43,7 @@ class AppContainer extends React.Container {
     this.randomTrack
   }
 
-  handleSelect(value, item) {
+  handleChange(value, item) {
 
     // Update input search box
     this.setState({autoCompleteValue: value, track: item});
@@ -57,8 +61,10 @@ class AppContainer extends React.Container {
 
   }
 
-  // url: Stream URL of the sound. Attaches the client id to the URL
+  // url: Stream URL of the sound.
+  // Attaches the client id to the URL
   prepareUrl(url) {
+    // Attach client id to stream url
     return `${url}?client_id=${this.client_id}`
   }
 
@@ -97,9 +103,9 @@ class AppContainer extends React.Container {
 
   togglePlay() {
     // Check current playing state
-    if(this.state.playStatus === sound.status.PLAYING){
+    if(this.state.playStatus === Sound.status.PLAYING){
       // Pause if playing
-      this.setState({playStatus: Sound.state.PAUSED})
+      this.setState({playStatus: Sound.status.PAUSED})
     } else {
       // Resume if paused
       this.setState({playStatus: Sound.status.PLAYING})
@@ -115,6 +121,10 @@ class AppContainer extends React.Container {
 
     backward() {
       this.setState({playFromPosition: this.state.playFromPosition-=1000*10});
+    }
+
+    handleSelect() {
+      this.setState({ autoCompleteValue: value, track: item});
     }
 
   }
