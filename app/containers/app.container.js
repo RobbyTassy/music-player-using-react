@@ -46,7 +46,7 @@ class AppContainer extends React.Container {
   handleChange(value, item) {
 
     // Update input search box
-    this.setState({autoCompleteValue: value, track: item});
+    this.setState({autoCompleteValue: event.target.value});
     let _this = this;
 
     // Search for song with entered value
@@ -127,7 +127,22 @@ class AppContainer extends React.Container {
       this.setState({ autoCompleteValue: value, track: item});
     }
 
-  }
+    randomTrack() {
+      let _this = this;
+      // Request for a playlist via Soundcloud using a client id
+      Axios.get(`https://api.soundcloud.com/playlists/209262931?client_id=${this.client_id}`)
+        .then(function (response)) {
+          // Store the length of the tracks
+          const trackLength = response.data.tracks.length;
+          // Pic a random number
+          const randomNumber = Math.floor((Math.random() * trackLength) + 1);
+          _this.setState({track: response.data.tracks[randomNumber]});
+        })
+        .catch(function (err) {
+          // If something goes wrong, let us know
+          console.log(err);
+        });
+    }
 
 
   // Render method
